@@ -10,7 +10,9 @@
             </figure>
           </div>
           <div class="col-md-6 col-md-offset-0 description">
-            <h1 v-text="product.title"></h1>
+            <router-link tag="h1" :to="{name: 'Id', params:{id: product.id}}">
+              product.title
+            </router-link>
             <p v-html="product.description"></p>
             <p class="price">
               {{product.price | formatPrice}}
@@ -19,15 +21,15 @@
             <button @click="addToCart(product)" class="btn btn-primary btn-lg" v-if="canAddToCart(product)">
               Add to cart
             </button>
-            <button class="btn btn-primary btn-lg" disabled="true" v-else>
+            <button class="btn btn-primary btn-lg" disabled v-else>
               Add to cart
             </button>
 
-            <span class="inventory-message" v-if="product.availableInventory - cartCount(product.id) === 0">
+            <span class="inventory-message" v-if="leftToBuy(product) === 0">
               All Out!
             </span>
-            <span class="inventory-message" v-else-if="product.availableInventory - cartCount(product.id) < 5">
-              Only {{product.availableInventory - cartCount(product.id)}} left!
+            <span class="inventory-message" v-else-if="leftToBuy(product) < 5">
+              Only {{leftToBuy(product)}} left!
             </span>
             <span class="inventory-message" v-else>
               Buy Now!
@@ -50,7 +52,10 @@
         name: 'iMain',
         data() {
             return {
-                products: {},
+                products: {
+                    availableInventory: undefined,
+                    rating: undefined,
+                },
                 cart: [],
             };
         },
@@ -79,6 +84,9 @@
                     }
                 }
                 return count;
+            },
+            leftToBuy(product) {
+                return product.availableInventory - this.cartCount(product.id);
             },
         },
         computed: {
