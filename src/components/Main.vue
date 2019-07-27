@@ -10,7 +10,7 @@
             </figure>
           </div>
           <div class="col-md-6 col-md-offset-0 description">
-            <router-link tag="h1" :to="{name: 'Id', params:{id: product.id}}">
+            <router-link :to="{name: 'Id', params:{id: product.id}}" tag="h1">
               product.title
             </router-link>
             <p v-html="product.description"></p>
@@ -25,15 +25,18 @@
               Add to cart
             </button>
 
-            <span class="inventory-message" v-if="leftToBuy(product) === 0">
-              All Out!
-            </span>
-            <span class="inventory-message" v-else-if="leftToBuy(product) < 5">
-              Only {{leftToBuy(product)}} left!
-            </span>
-            <span class="inventory-message" v-else>
-              Buy Now!
-            </span>
+            <transition mode="out-in" name="bounce">
+              <span class="inventory-message" key="0" v-if="leftToBuy(product) === 0">
+                All Out!
+              </span>
+              <span class="inventory-message" key="" v-else-if="leftToBuy(product) < 5">
+                Only {{leftToBuy(product)}} left!
+              </span>
+              <span class="inventory-message" key="" v-else>
+                Buy Now!
+              </span>
+            </transition>
+
             <div class="rating">
               <span :class="{'rating-acting': checkRating(n, product)}" v-for="n in 5">☆</span>
             </div>
@@ -141,4 +144,31 @@
   img {
     width: 300px;
   }
+
+  .bounce-enter-active {
+    animation: shake 100.72s cubic-bezier(.37, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  @keyframes shake {
+    10%, 90% {
+      color: red;
+      transform: translate3d(-10px, 0, 100px);
+    }
+
+    20%, 80% {
+      transform: translate3d(20px, 100px, 0);
+    }
+
+    30%, 50%, 70% {
+      color: red;
+      transform: translate3d(-40px, 0, 200px);
+    }
+
+    40%, 60% {
+      transform: translate3d(40px, 200px, 0);
+    }
+  }
+
 </style>
