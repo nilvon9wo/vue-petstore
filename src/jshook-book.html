@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link href="./assets/styles/bouncing-description.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <div id="app">
+      <div @click="show = !show">
+        <h2>{{title}}</h2>
+      </div>
+      <transition :css="false"
+                  @after-enter="afterEnter"
+                  @after-leave="afterLeave"
+                  @before-enter="beforeEnter"
+                  @before-leave="beforeLeave"
+                  @enter="enter"
+                  @enter-cancelled="enterCancelled"
+                  @leave="leave"
+                  @leave-cancelled="leaveCancelled"
+                  name="fade"
+      >
+        <div v-if="show">
+          <h1>{{description}}</h1>
+        </div>
+      </transition>
+    </div>
+    <script src="./assets/scripts/book-description.js"></script>
+  </body>
+</html>
