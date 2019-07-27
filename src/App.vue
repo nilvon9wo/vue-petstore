@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<style lang="less">
+<style lang="less" type="text/less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
