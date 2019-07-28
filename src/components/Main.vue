@@ -142,29 +142,54 @@
   }
 
   .bounce-enter-active {
-    animation: shake 100.72s cubic-bezier(.37, .07, .19, .97) both;
+    animation: shake 1.72s cubic-bezier(.37, .07, .19, .97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
   }
 
+
   @keyframes shake {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+      color: red;
+      font-weight: bolder;
+      font-size: xx-large;
+    }
+
     10%, 90% {
       color: red;
       transform: translate3d(-10px, 0, 100px);
+      opacity: 0;
     }
 
     20%, 80% {
       transform: translate3d(20px, 100px, 0);
+      opacity: 1;
     }
 
     30%, 50%, 70% {
       color: red;
       transform: translate3d(-40px, 0, 200px);
+      opacity: 0;
+    }
+
+    39%, 61% {
+      transform: scale(1.5);
+      opacity: 1.5;
     }
 
     40%, 60% {
       transform: translate3d(40px, 200px, 0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(2);
+      opacity: 2;
+      color: red;
+      font-weight: bolder;
+      font-size: xx-large;
     }
   }
-
 </style>
