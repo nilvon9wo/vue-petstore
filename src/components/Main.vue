@@ -55,10 +55,6 @@
         name: 'iMain',
         data() {
             return {
-                products: {
-                    availableInventory: undefined,
-                    rating: undefined,
-                },
                 cart: [],
             };
         },
@@ -93,6 +89,9 @@
             },
         },
         computed: {
+            products() {
+                return this.$store.getters.products;
+            },
             cartItemCount() {
                 return this.cart.length || '';
             },
@@ -132,10 +131,7 @@
             },
         },
         created() {
-            axios.get('./data/products.json')
-                .then((response) => {
-                    this.products = response.data.products;
-                });
+            this.$store.dispatch('initStore');
         },
     };
 </script>

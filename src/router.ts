@@ -23,12 +23,11 @@ export default new Router({
             props: true,
             children: [
                 {
-                    path: '/edit',
+                    path: 'edit',
                     name: 'Edit',
                     component: EditProduct,
                     props: true,
                 },
-
             ],
         },
         {
