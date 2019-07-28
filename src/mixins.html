@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="container">
+        <h1 class="text-center">{{title}}</h1>
+        <div class="row">
+          <div class="col-md-3 col-md-offset-2">
+            <my-compl class="comp1"></my-compl>
+          </div>
+          <div class="col-md-3">
+            <h2 class="text-center">Or</h2>
+          </div>
+          <div class="col-md-3 col-md-offset-2">
+            <my-comp2 class="comp2"></my-comp2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./assets/scripts/mixins.js"></script>
+</html>

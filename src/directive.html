@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-style-me="http://www.w3.org/1999/xhtml">
+  <head>
+    <script src="https://unpkg.com/vue"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="app">
+      <p v-style-me:text-center.large="'red'">
+        {{welcome}}
+      </p>
+      <div v-style-me:small>Hi everybody</div>
+    </div>
+  </body>
+  <script src="./assets/scripts/directive.js"></script>
+</html>
