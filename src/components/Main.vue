@@ -49,7 +49,7 @@
 
 <script>
     import MyHeader from '@/components/Header';
-    import axios from 'axios';
+    import {mapGetters} from 'vuex';
 
     export default {
         name: 'iMain',
@@ -89,9 +89,9 @@
             },
         },
         computed: {
-            products() {
-                return this.$store.getters.products;
-            },
+            ...mapGetters([
+                'products',
+            ]),
             cartItemCount() {
                 return this.cart.length || '';
             },
