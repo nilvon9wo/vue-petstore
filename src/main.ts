@@ -1,9 +1,13 @@
-import Vue from 'vue';
 import App from './App.vue';
+import firebase from 'firebase';
 import router from './router';
 import store from './store/store';
-import './registerServiceWorker';
+import Vue from 'vue';
+import VueFire from 'vuefire';
+
 import './assets/app.css';
+import './firebase';
+import './registerServiceWorker';
 
 Vue.config.productionTip = false;
 
