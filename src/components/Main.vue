@@ -50,6 +50,7 @@
 <script>
     import MyHeader from '@/components/Header';
     import {mapGetters} from 'vuex';
+    import {productsRef} from '@/firebase';
 
     export default {
         name: 'iMain',
@@ -57,6 +58,9 @@
             return {
                 cart: [],
             };
+        },
+        firebase: {
+            products: productsRef,
         },
         components: {MyHeader},
         methods: {
@@ -90,7 +94,7 @@
         },
         computed: {
             ...mapGetters([
-                'products',
+                'session',
             ]),
             cartItemCount() {
                 return this.cart.length || '';

@@ -52,20 +52,20 @@
                 firebase.auth()
                     .signInWithPopup(provider)
                     .then(() => {
-                        console.info('signed in!');
+                        console.info('signed in!'); // tslint:disable-line
                     })
                     .catch((error) => {
-                        console.error('error ' + error);
+                        console.error('error ' + error); // tslint:disable-line
                     });
             },
             signOut() {
                 firebase.auth()
                     .signOut()
                     .then(() => {
-                        console.info('signed out!');
+                        console.info('signed out!'); // tslint:disable-line
                     })
                     .catch((error) => {
-                        console.error('error in sign out!');
+                        console.error('error in sign out!'); // tslint:disable-line
                     });
             },
         },
